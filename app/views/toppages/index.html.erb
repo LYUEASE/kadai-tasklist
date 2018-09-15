@@ -1,6 +1,24 @@
-<div class ="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the TaskLists</h1>
+<% if logged_in? %>
+  <div class="row">
+    
+    <aside class="col-md-4">
+      
+      <%= render 'layouts/form' %>
+      
+    </aside>
+    
+    <div class="col-xs-8">
+      <%= render 'tasks/tasks', tasks: @tasks %>
+    </div>
+    
   </div>
   
-</div>
+  
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the TASKS</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
